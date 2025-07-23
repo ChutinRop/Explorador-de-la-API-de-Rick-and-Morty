@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorador Rick y Morty</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://www.xtrafondos.com/wallpapers/paisaje-mundo-de-rick-y-morty-13184.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .bg-overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen">
+
+  <div class="bg-overlay min-h-screen">
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-4 text-center">Explorador de Personajes - Rick y Morty</h1>
+
+      <!-- Filtros -->
+      <div class="grid md:grid-cols-5 gap-4 mb-6">
+        <input id="name" type="text" placeholder="Buscar por nombre" class="p-2 rounded text-black" />
+        <select id="status" class="p-2 rounded text-black">
+          <option value="">Estado</option>
+          <option value="alive">Vivo</option>
+          <option value="dead">Muerto</option>
+          <option value="unknown">Desconocido</option>
+        </select>
+        <select id="gender" class="p-2 rounded text-black">
+          <option value="">Género</option>
+          <option value="female">Femenino</option>
+          <option value="male">Masculino</option>
+          <option value="genderless">Sin género</option>
+          <option value="unknown">Desconocido</option>
+        </select>
+        <select id="species" class="p-2 rounded text-black">
+          <option value="">Especie</option>
+          <option value="Human">Humano</option>
+          <option value="Alien">Alien</option>
+          <option value="Animal">Animal</option>
+          <option value="Poopybutthole">Mascota</option>
+          <option value="unknown">Desconocido</option>
+        </select>
+        <button id="filterBtn" class="bg-green-500 hover:bg-green-700 p-2 rounded">Buscar</button>
+      </div>
+
+      <!-- Estado -->
+      <div id="statusMessage" class="text-center text-lg mb-4"></div>
+
+      <!-- Resultados -->
+      <div id="characters" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+      <!-- Navegación -->
+      <div class="flex justify-center gap-4 mt-6">
+        <button id="prevBtn" class="bg-gray-600 p-2 rounded disabled:opacity-50">Anterior</button>
+        <button id="nextBtn" class="bg-gray-600 p-2 rounded disabled:opacity-50">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
